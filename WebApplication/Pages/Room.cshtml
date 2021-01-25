@@ -1,0 +1,21 @@
+@page "{id}"
+@using WebApplication.Hubs
+@model WebApplication.Pages.RoomModel
+
+<turbo-signalr-stream-source hub=@($"/{nameof(ChatHub)}") method="messageReceived" room-id="@Model.Room.Id"></turbo-signalr-stream-source>
+
+<h3>@Model.Room.Name</h3>
+<turbo-frame id="messages">
+    @foreach (var message in @Model.Room.Messages)
+    {
+        <message model="message" liquid-template-path="Shared/Templates/Message.liquid"></message>
+    }
+</turbo-frame>
+<turbo-frame>
+    <form asp-page-handler="message" method="post">
+        <div class="input-group col-4 mt-4">
+            <input class="form-control" type="text" name="message"></input>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+        </div>
+    </form>
+</turbo-frame>
