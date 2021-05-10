@@ -19,8 +19,6 @@ namespace WebApplication
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            
-            TemplateContext.GlobalMemberAccessStrategy.Register<Message>();
         }
 
         IConfiguration Configuration { get; }

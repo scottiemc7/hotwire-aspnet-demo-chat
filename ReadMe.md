@@ -6,6 +6,14 @@ A port of the [Hotwire Rails Chat Demo](https://github.com/hotwired/hotwire-rail
 * SignalR to deliver [Turbo Streams](https://turbo.hotwire.dev/handbook/streams) messages
 * [Fluid](https://github.com/sebastienros/fluid) for out of band template rendering
 
-To start, create the database with the following command and you should be off and running.
+To start, go to `./WebApplication` and run:
 
-`dotnet ef database update`
+```
+npm ci
+dotnet build
+dotnet tool restore
+dotnet ef database update --no-build
+dotnet run
+```
+
+Then open https://localhost:5001 and try it out.
