@@ -362,3 +362,7 @@ MigrationBackup/
 FodyWeavers.xsd
 
 .idea/
+
+# App_Data
+WebApplication/App_Data/*
+!WebApplication/App_Data/.gitkeep
